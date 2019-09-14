@@ -1,5 +1,6 @@
 <template>
   <div class="upload">
+    <app-location-info-drawer :visible="locationInfoDrawerVisible" :close="closeLocationInfoDrawer"></app-location-info-drawer>
     <a-upload name="image" :multiple="false" :headers="headers" :before-upload="beforeUpload" :fileList="fileList">
       <a-button>
         <a-icon type="upload"/>
@@ -7,21 +8,26 @@
       </a-button>
     </a-upload>
     <button @click="handleUpload">CLICK</button>
+    <button @click="openLocationInfoDrawer">Open Drawer</button>
   </div>
 </template>
 
 <script>
   import axios from 'axios'
+  import AppLocationInfoDrawer from '../components/LocationInfoDrawer'
 
   export default {
     name: 'AppUpload',
-    components: {},
+    components: {
+      AppLocationInfoDrawer,
+    },
     data() {
       return {
         headers: {
           authorization: 'authorization-text',
         },
         fileList: [],
+        locationInfoDrawerVisible: false,
       }
     },
     methods: {
@@ -42,7 +48,13 @@
         } else {
           return null;
         }
-      }
+      },
+      openLocationInfoDrawer() {
+        this.locationInfoDrawerVisible = true;
+      },
+      closeLocationInfoDrawer() {
+        this.locationInfoDrawerVisible = false;
+      },
     }
   }
 </script>
