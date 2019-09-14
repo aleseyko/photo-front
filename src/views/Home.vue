@@ -1,12 +1,12 @@
 <template>
   <div class="home">
-    <Map :locations="locations" msg="HELLO" :multiply="multiply"/>
+    <Map/>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
-import Map from '@/components/Map.vue'
+import Map from '../components/Map.vue'
 
 export default {
   name: 'home',
