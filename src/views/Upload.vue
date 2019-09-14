@@ -1,11 +1,22 @@
 <template>
   <div class="upload">
+<<<<<<< HEAD
+=======
+    <app-location-info-drawer :visible="locationInfoDrawerVisible" :close="closeLocationInfoDrawer">
+    </app-location-info-drawer>
+>>>>>>> naaaa
     <a-upload name="image" :multiple="false" :headers="headers" :before-upload="beforeUpload" :fileList="fileList">
       <a-button>
         <a-icon type="upload"/>
         Click to Upload
       </a-button>
+
     </a-upload>
+    <div class="helloworld">
+    <a-carousel :afterChange="onChange" >
+
+    </a-carousel>
+    </div>
     <button @click="handleUpload">CLICK</button>
     <button @click="openLocationInfoDrawer">Open Drawer</button>
   </div>
@@ -46,3 +57,6 @@
     }
   }
 </script>
+<style lang="scss">
+
+</style>

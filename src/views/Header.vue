@@ -1,29 +1,39 @@
 <template>
     <div>
-        <ul>
-            <li v-bind:key="links" v-for="links in elements">
-                <a :href="link">{{text}}</a>
-            </li>
-        </ul>
+        <a-carousel>
+            <div><h3>1</h3></div>
+            <div><h3>2</h3></div>
+            <div><h3>3</h3></div>
+            <div><h3>4</h3></div>
+        </a-carousel>
     </div>
 </template>
 <script>
     import Map from "../components/Map";
 
     export default {
+
         components: {Map},
         data() {
             return {
-                elements: {
-                    links: {
-                        link: 'google.com',
-                        text: 'Site'
-                    }
-                }
+
             }
+        },
+        methods:{
+
         }
     }
 </script>
 <style>
+    .ant-carousel >>> .slick-slider {
+        text-align: center;
+        height: 160px;
+        line-height: 160px;
+        background: #364d79;
+        overflow: hidden;
+    }
 
+    .ant-carousel >>> .slick-slider h3 {
+        color: #fff;
+    }
 </style>
