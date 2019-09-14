@@ -1,32 +1,29 @@
 <template>
-  <div class="hello">
-    <h1>HELLO</h1>
-  </div>
+  <a-comment>
+    <a slot="author">Han Solo</a>
+    <p slot="content">We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.</p>
+    <a-tooltip slot="datetime" :title="tooltipTitle">
+      <span>{{timeFromNow}}</span>
+    </a-tooltip>
+  </a-comment>
 </template>
 
 <script>
+  import moment from 'moment'
 export default {
   name: 'HelloWorld',
-  props: {
-    msg: String
+  computed: {
+    timeFromNow: function() {
+      return moment().fromNow() || 'not found time'
+    },
+    tooltipTitle: function() {
+      return moment().format('YYYY-MM-DD HH:mm:ss') || 'not found time'
+    }
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
+
 </style>

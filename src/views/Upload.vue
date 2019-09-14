@@ -1,10 +1,7 @@
 <template>
   <div class="upload">
-<<<<<<< HEAD
-=======
     <app-location-info-drawer :visible="locationInfoDrawerVisible" :close="closeLocationInfoDrawer">
     </app-location-info-drawer>
->>>>>>> naaaa
     <a-upload name="image" :multiple="false" :headers="headers" :before-upload="beforeUpload" :fileList="fileList">
       <a-button>
         <a-icon type="upload"/>
