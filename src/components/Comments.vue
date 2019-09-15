@@ -1,11 +1,10 @@
 <template>
-  <a-comment>
-    <a slot="author">Han Solo</a>
-    <p slot="content">We supply a series of design principles, practical patterns and high quality design resources (Sketch and Axure), to help people create their product prototypes beautifully and efficiently.</p>
-    <a-tooltip slot="datetime" :title="tooltipTitle">
-      <span>{{timeFromNow}}</span>
-    </a-tooltip>
-  </a-comment>
+  <div>
+    <a-comment v-for="(comment, index) in comments" :key="index">
+      <a slot="author">{{comment.name}}</a>
+      <p slot="content">{{comment.comment}}</p>
+    </a-comment>
+  </div>
 </template>
 
 <script>
@@ -19,11 +18,20 @@ export default {
     tooltipTitle: function() {
       return moment().format('YYYY-MM-DD HH:mm:ss') || 'not found time'
     }
+  },
+  props: {
+    comments: Array,
   }
 }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
-
+ a{
+   font-weight: bold;
+   color: black;
+ }
+  p{
+    color: black;
+  }
 </style>
